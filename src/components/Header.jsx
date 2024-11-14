@@ -19,13 +19,13 @@ const Menus = () => {
     return (
         <ul>
             <li className="has-dropdown active">
-                <Link href="/">
+            <Link to="/">
                     Home Page
                     <i className="fas fa-angle-down" />
                 </Link>
                 <ul className="submenu has-homemenu">
                     <li className="border-none">
-                        <div className="row g-4">
+                        <div className="row gap-4">
                             <div className="col-lg-4 homemenu">
                                 <div className="homemenu-thumb">
                                     <img src="assets/img/header/home-1.jpg" alt="img" />
