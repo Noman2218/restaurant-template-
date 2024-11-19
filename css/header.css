@@ -1,0 +1,13 @@
+.body {
+     background-color: brown; 
+}
+.header-top {
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.header-top-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
