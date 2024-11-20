@@ -1,4 +1,5 @@
 import React from 'react';
+import 'animate.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck, faSearch,faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faVimeoV, faPinterestP } from '@fortawesome/free-brands-svg-icons';
@@ -29,9 +30,9 @@ const Header = () => {
 <div className='bg-black w-full h-0.5 opacity-50 ' ></div>
       <div id="header-sticky" className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center py-4">
-          <div className="logo">
+          <div >
             <a href="/">
-              <img src="/images/logo.svg" alt="logo-img" className="h-12" />
+              <img src="/images/logo.svg" alt="logo-img" className="h-14" />
             </a>
           </div>
           <div className="flex space-x-6">
@@ -41,45 +42,6 @@ const Header = () => {
                   <a href="/" className="flex items-center space-x-2">
                     <span>Home Page</span>
                   </a>
-                  <ul className="absolute left-0 bg-white shadow-lg mt-2 hidden">
-                    <li>
-                      <div className="flex space-x-4">
-                        <div className="w-1/3">
-                          <div className="relative">
-                            <img src="assets/img/header/home-1.jpg" alt="img" className="w-full h-auto" />
-                            <div className="absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-center">
-                              <a href="/" className="theme-btn">View Demo</a>
-                            </div>
-                          </div>
-                          <h4 className="text-center py-2">
-                            <a href="/">Home 01</a>
-                          </h4>
-                        </div>
-                        <div className="w-1/3">
-                          <div className="relative">
-                            <img src="assets/img/header/home-2.jpg" alt="img" className="w-full h-auto" />
-                            <div className="absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-center">
-                              <a href="index-2" className="theme-btn">View Demo</a>
-                            </div>
-                          </div>
-                          <h4 className="text-center py-2">
-                            <a href="index-2">Home 02</a>
-                          </h4>
-                        </div>
-                        <div className="w-1/3">
-                          <div className="relative">
-                            <img src="assets/img/header/home-3.jpg" alt="img" className="w-full h-auto" />
-                            <div className="absolute bottom-0 left-0 p-2 bg-black bg-opacity-50 text-white text-center">
-                              <a href="index-3" className="theme-btn">View Demo</a>
-                            </div>
-                          </div>
-                          <h4 className="text-center py-2">
-                            <a href="index-3">Home 03</a>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
                 </li>
                 <li className="relative">
                   <a href="shop" className="flex items-center space-x-2">
@@ -106,7 +68,7 @@ const Header = () => {
               <a href="shop-cart" className="cart-icon"><FontAwesomeIcon icon={faShoppingBasket} className="text-gray-800" /></a>
             </div>
             <div className="header-button">
-              <a href="contact" className="theme-btn bg-red-500">Contact Us</a>
+              <a href="contact" className="bg-red-600 text-white p-4 rounded">Contact Us</a>
             </div>
             <div className="header__hamburger d-xl-block">
             </div>
@@ -118,3 +80,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
