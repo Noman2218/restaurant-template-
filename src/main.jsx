@@ -2,8 +2,9 @@ import  React from "react";
 import  ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider,} from "react-router-dom";
 import "./index.css";
-import Home from "../Home";
-import Header from "./components/Header";
+import Home from "./Home";
+import Header from "./components/header";
+
 
 const router = createBrowserRouter([
   
