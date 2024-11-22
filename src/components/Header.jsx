@@ -14,15 +14,19 @@ const Header = () => {
             <li><FontAwesomeIcon className='text-red-600' icon={faTruck} /> Track Your Order</li>
           </ul>
           <div className="flex space-x-4">
-            <div className="relative">
-              <button className="text-white"><FontAwesomeIcon className="text-black" icon={faSearch} /></button>
-              <input className="pl-10 py-1 px-4 rounded-md border border-gray-300" placeholder="Search" aria-label="Search" />
+          <div className="relative">
+              <input
+                className="pl-10 py-1 px-4 rounded-md border hover:border-red-600 ease-in duration-150"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <FontAwesomeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600 ease-in duration-150" icon={faSearch} />
             </div>
             <div className="  flex space-x-4">
-              <a href="#" className="text-black"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#" className="text-black"><FontAwesomeIcon icon={faTwitter} /></a>
-              <a href="#" className="text-black"><FontAwesomeIcon icon={faVimeoV} /></a>
-              <a href="#" className="text-black"><FontAwesomeIcon icon={faPinterestP} /></a>
+              <a href="#" className="text-black hover:text-red-600 ease-in duration-300"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#" className="text-black hover:text-red-600 ease-in duration-300"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="#" className="text-black hover:text-red-600 ease-in duration-300"><FontAwesomeIcon icon={faVimeoV} /></a>
+              <a href="#" className="text-black hover:text-red-600 ease-in duration-300"><FontAwesomeIcon icon={faPinterestP} /></a>
             </div>
           </div>
         </div>
