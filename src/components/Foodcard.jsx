@@ -1,64 +1,112 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // React Router
-import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // React Router
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+  Box,
+} from "@mui/material";
 
-const FoodCard = () => {
+const FoodCard = ({ item }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className="container mx-auto px-4 pt-6">
-      {/* React Router Link */}
-      <Link to="/pizza-details" style={{ textDecoration: 'none' }}>
-        <Card
+    <Card
+      sx={{
+        maxWidth: 300,
+        position: "relative", // For positioning droplets
+        overflow: "hidden", // Ensure content doesn't overflow
+        transition: "all 0.3s ease-in-out",
+        backgroundImage: hover
+          ? "url('/images/booking-shape.png')" // Texture image path
+          : "none", // No texture when not hovering
+        backgroundSize: "cover", // Cover the card area with texture
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        "&:hover": {
+          backgroundColor: "rgba(255, 215, 0, 0.8)", // Semi-transparent golden overlay
+        },
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {/* Droplet Animation */}
+      {hover && (
+        <Box
           sx={{
-            maxWidth: 300,
-            transition: 'all 0.3s ease-in-out',
-            '&:hover': {
-              backgroundColor: '#FFD700', // Golden hover background
-            },
+            position: "absolute",
+            top: "-30px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "80px",
+            height: "80px",
+            backgroundImage: "url('/images/hover droplets.png')", // Replace with your droplet image
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            opacity: hover ? 1 : 0,
+            transition: "all 0.5s ease-in-out",
           }}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-        >
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/images/pizza-2.png" // Replace with your image path
-              alt="pizza image"
-            />
-            <CardContent
+        ></Box>
+      )}
+
+      <Link
+        to={`/${item.name.toLowerCase()}-details`}
+        style={{ textDecoration: "none" }}
+      >
+        <CardActionArea>
+          {/* Food Image */}
+          <CardMedia
+            component="img"
+            height="140"
+            image={item.image} // Dynamic image path
+            alt={`${item.name} image`}
+            sx={{
+              height: "250px", // Set a consistent height
+              objectFit: "contain", // Ensure the image fits inside the container without cropping
+              margin: "auto", // Center the image
+              padding: "10px", // Add some space around the image
+              transition: "transform 0.3s ease-in-out",
+             
+            }}
+          />
+
+          {/* Food Details */}
+          <CardContent
+            sx={{
+              boxShadow: 6,
+              transition: "all 0.3s ease-in-out", // Smooth transition for text
+            }}
+          >
+            <Typography
+              gutterBottom
+              variant="h4"
+              textAlign="center"
               sx={{
-                transition: 'all 0.3s ease-in-out', // Smooth transition for text
+                fontWeight: "550", // Make the font bold
+                fontFamily: "Barlow Condensed, sans-serif", // Apply the font
+                color: hover ? "white" : "black",
+                transition: "color 0.3s ease-in-out",
               }}
             >
-              <Typography
-                gutterBottom
-                variant="h4"
-                textAlign="center"
-                sx={{
-                  color: hover ? 'white' : 'black',
-                  transition: 'color 0.3s ease-in-out',
-                }}
-              >
-                {hover ? 'Best Pizza' : 'Pro Pizza'}
-              </Typography>
+              {hover ? `Best ${item.name}` : item.name}
+            </Typography>
 
-              <Typography
-                variant="body1"
-                textAlign="center"
-                sx={{
-                  color: hover ? 'white' : 'red',
-                  transition: 'color 0.3s ease-in-out',
-                }}
-              >
-                {hover ? 'Delicious & Cheesy' : '5 Products'}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+            <Typography
+              variant="body1"
+              textAlign="center"
+              sx={{
+                color: hover ? "white" : "red",
+                transition: "color 0.3s ease-in-out",
+              }}
+            >
+              {hover ? item.description : item.price}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
       </Link>
-    </div>
+    </Card>
   );
 };
 
