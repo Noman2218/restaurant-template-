@@ -16,30 +16,31 @@ const Offerbox = () => {
   }, []); // Empty dependency array to fetch data only once
 
   return (
-    <div className="flex justify-center items-center  bg-gray-100">
+    <div className="flex justify-center items-center bg-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
         {/* Map over the offerbox data */}
         {offerbox.map((card, index) => (
           <div
             key={index}
-            className={`relative rounded-lg shadow-lg overflow-hidden ${card.bgColor} p-6 w-full h-80`}  // Set fixed width and height
+            className={`relative rounded-lg shadow-lg overflow-hidden bg-white p-6 w-full h-80 group flex`} // Added 'flex'
             style={{
-              backgroundImage: `url(${card.bgImage})`,  // Set the background image dynamically
-              backgroundSize: '',  // Ensure the background image covers the entire card
-              backgroundPosition: 'center',  // Center the background image
-              backgroundRepeat: 'no-repeat',  // Prevent background repetition
+              backgroundImage: `url(${card.bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
             }}
           >
-            {/* Content */}
-            <div className="relative z-10">
-              <h3
-                className={`text-lg md:text-xl font-bold uppercase ${card.textColor}`}
-              >
-                {card.description}
-              </h3>
-              <h2
-                className={`text-3xl md:text-4xl font-bold mt-2 ${card.textColor}`}
-              >
+            {/* Left Half: Text or Image */}
+            <div className="w-1/2 flex flex-col  justify-center items-start z-10 p-4">
+              {/* If `card.description` is not text, you can replace it with another image */}
+              {card.description ? (
+                <h3 className={`text-lg md:text-xl font-bold uppercase ${card.textColor}`}>
+                  {card.description}
+                </h3>
+              ) : (
+                <img src="path-to-description-image.png " alt="Description" className="w-full h-auto" />
+              )}
+              <h2 className={`text-3xl md:text-4xl font-bold mt-2 ${card.textColor}`}>
                 {card.title}
               </h2>
 
@@ -58,22 +59,19 @@ const Offerbox = () => {
               )}
             </div>
 
-            {/* Main Image (Burger or Pizza) */}
-            <div
-              className={`absolute bottom-0 right-0 transform transition-transform duration-300 hover:scale-110 ${
-                card.title.toLowerCase().includes('pizza') ? 'w-48 h-48 md:w-64 md:h-64' : 'w-40 h-40 md:w-48 md:h-48'
-              }`} // Conditional scaling based on the title (Pizza vs Burger)
-            >
+            {/* Right Half: Main Image */}
+            <div className="w-1/2 flex justify-center transform transition-transform duration-300  group-hover:scale-110 items-center relative">
               <img
-                src={card.mainImage}
+                src={card.mainImage} // Pizza or Burger image
                 alt="Food Item"
-                className="w-full h-full object-contain"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>
         ))}
       </div>
     </div>
+
   );
 };
 

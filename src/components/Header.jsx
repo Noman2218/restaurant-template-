@@ -1,27 +1,31 @@
 import React from 'react';
 import 'animate.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruck, faSearch,faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faTruck, faSearch, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faVimeoV, faPinterestP } from '@fortawesome/free-brands-svg-icons';
 
 const Header = () => {
   return (
     <header >
-      <div className=" py-4">
+      <div className=" py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
           <ul className="flex space-x-4">
             <li><span className='font-bold text-red-600' >100%</span> Secure delivery without contacting the courier</li>
             <li><FontAwesomeIcon className='text-red-600' icon={faTruck} /> Track Your Order</li>
           </ul>
           <div className="flex space-x-4">
-          <div className="relative">
+            <div className="relative">
               <input
-                className="pl-10 py-1 px-4 rounded-md border hover:border-red-600 ease-in duration-150"
+                className="pl-10 py-1 px-4 rounded-md border hover:border-red-500 focus:outline-none focus:border-red-600' focus:ring-red-600 focus:ring-1 ease-in duration-150"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <FontAwesomeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600 ease-in duration-150" icon={faSearch} />
+              <FontAwesomeIcon
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600 ease-in duration-150"
+                icon={faSearch}
+              />
             </div>
+
             <div className="  flex space-x-4">
               <a href="#" className="text-black hover:text-red-600 ease-in duration-300"><FontAwesomeIcon icon={faFacebookF} /></a>
               <a href="#" className="text-black hover:text-red-600 ease-in duration-300"><FontAwesomeIcon icon={faTwitter} /></a>
@@ -31,10 +35,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-<div className='bg-black w-full h-0.5 opacity-50 ' ></div>
+      <div className='bg-black w-full h-0.5 opacity-50  ' ></div>
       <div id="header-sticky" className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center py-4">
-          <div >
+          <div className='px-6' >
             <a href="/">
               <img src="/images/logo.svg" alt="logo-img" className="h-14" />
             </a>
@@ -55,7 +59,7 @@ const Header = () => {
                 <li className="relative">
                   <a href="news" className="flex items-center space-x-2">
                     <span>Blog</span>
-                
+
                   </a>
                   <ul className="absolute left-0 bg-white shadow-lg mt-2 hidden">
                     <li><a href="news" className="block py-2 px-4">Blog</a></li>
@@ -68,7 +72,7 @@ const Header = () => {
           </div>
 
           <div className="flex space-x-6 items-center">
-            <div className= "relative">
+            <div className="relative">
               <a href="shop-cart" className="cart-icon"><FontAwesomeIcon icon={faShoppingBasket} className="text-gray-800" /></a>
             </div>
             <div className="header-button">

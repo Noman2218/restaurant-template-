@@ -20,7 +20,7 @@ const HeroSection = () => {
               <p className="text-2xl text-red-500 font-barlow font-medium ">
                 Crispy, every bite taste
               </p>
-              <h1 className="text-9xl font-bold font-barlow text-white mb-6 leading-tight">
+              <h1 className="text-8xl font-bold font-barlow text-white mb-6 leading-tight">
                 Delicious <br /> <span className="text-red-500">Fried Chicken</span>
               </h1>
               <div>

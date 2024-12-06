@@ -107,7 +107,7 @@ const FoodCard = ({ item }) => {
         </CardActionArea>
       </Link>
     </Card>
-  );
+    );
 };
 
 export default FoodCard;
