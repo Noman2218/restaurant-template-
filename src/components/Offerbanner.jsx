@@ -1,21 +1,29 @@
-import React from "react";
-import Activeslider from "./components/Activeslider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruck } from "@fortawesome/free-solid-svg-icons";
-import Offerbox from "./components/Offerbox";
-import Offerbanner from "./components/Offerbanner";
+import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import React, { useEffect } from 'react'
+
+const Offerbanner = () => {
 
 
 
-const HeroSection = () => {
-  return (
-    <div>
-      {/* Hero Section */}
-      <section
-        className="relative bg-cover bg-center"
-        style={{ backgroundImage: 'url("/images/hero-bg.jpg")' }}
-      >
-        <div className="container mx-auto px-4">
+    // useEffect(() => {
+    //     axios.get('http://localhost:3000/Offerbox')  // Make sure this endpoint is correct
+    //         .then((response) => {
+    //             Offerbanner(response.data); // Store the data in state
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error fetching food items:", error);
+    //         });
+    // }, []); // Empty dependency array to fetch data only once
+
+    return (
+        <div>
+            <section
+                className="relative bg-cover bg-center"
+                style={{ backgroundImage: 'url("/images/main-bg.jpg")' }}
+            >
+               <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between pt-8 pb-16 relative z-10">
             <div className="w-full lg:w-1/2">
               <p className="text-2xl text-red-500 font-barlow font-medium ">
@@ -36,7 +44,7 @@ const HeroSection = () => {
             <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
               <div className="relative animate__animated animate__fadeInUp">
                 <img
-                  src="/images/chiken.png"
+                  src="/images/grilled.png"
                   alt="Fried Chicken"
                   className="max-w-full mx-auto z-10"
                 />
@@ -45,15 +53,11 @@ const HeroSection = () => {
           </div>
         </div>
 
-      </section>
-
-      <Activeslider />
-      <Offerbox />
-      <Offerbanner />
 
 
-    </div>
-  );
-};
+            </section>
+        </div>
+    )
+}
 
-export default HeroSection;
+export default Offerbanner

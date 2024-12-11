@@ -22,7 +22,7 @@ const Activeslider = () => {
 
   return (
     <div>
-      <div className='container mt-12'>
+      <div className='container  mt-12'>
         <p className='ml-12 sm:ml-24 md:ml-48 font-barlow font-bold text-red-600 text-xl sm:text-2xl md:text-3xl'>
           CRISPY, EVERY BITE TASTE
         </p>

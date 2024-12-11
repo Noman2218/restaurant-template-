@@ -15,9 +15,9 @@ const Offerbox = () => {
       });
   }, []); // Empty dependency array to fetch data only once
 
-  return (
-    <div className="flex justify-center items-center bg-gray-100">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+  return ( 
+    <div className="flex justify-center items-center container mx-auto">
+      <div className="grid grid-cols-1  md:grid-cols-2 gap-8 p-6">
         {/* Map over the offerbox data */}
         {offerbox.map((card, index) => (
           <div
@@ -28,18 +28,20 @@ const Offerbox = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              backgroundRepeat: 'repeat',
             }}
           >
             {/* Left Half: Text or Image */}
             <div className="w-1/2 flex flex-col  justify-center items-start z-10 p-4">
               {/* If `card.description` is not text, you can replace it with another image */}
-              {card.description ? (
-                <h3 className={`text-lg md:text-xl font-bold uppercase ${card.textColor}`}>
-                  {card.description}
-                </h3>
-              ) : (
-                <img src="path-to-description-image.png " alt="Description" className="w-full h-auto" />
-              )}
+              <img
+                src={card.titleImage} 
+                alt="text image"
+                className="w-full h-auto object-contain"
+              />
+             <h3>
+              {card.description}
+             </h3>
               <h2 className={`text-3xl md:text-4xl font-bold mt-2 ${card.textColor}`}>
                 {card.title}
               </h2>
@@ -51,12 +53,6 @@ const Offerbox = () => {
                 </div>
               )}
 
-              {/* Offer */}
-              {card.offer && (
-                <div className="mt-4 text-lg font-bold italic">
-                  {card.offer}
-                </div>
-              )}
             </div>
 
             {/* Right Half: Main Image */}

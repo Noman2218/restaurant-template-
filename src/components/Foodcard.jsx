@@ -37,11 +37,11 @@ const FoodCard = ({ item }) => {
         <Box
           sx={{
             position: "absolute",
-            top: "-30px",
+            top: "-28px",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "80px",
-            height: "80px",
+            width: "100%",
+            height: "100%",
             backgroundImage: "url('/images/hover droplets.png')", // Replace with your droplet image
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
